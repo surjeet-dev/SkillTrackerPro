@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="app-toolbar">
+  <span class="brand">SkillTracker Pro</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/">Home</a>
+  <a mat-button routerLink="/users">Users</a>
+  <a mat-button routerLink="/department">Departments</a>
+  <a mat-button routerLink="/dashboard">Dashboard</a>
+</mat-toolbar>
+
+<section class="hero">
+  <h1>Welcome to SkillTracker Pro</h1>
+  <p>Manage users, departments, and insights—fast and clean.</p>
+</section>
+
+<section class="card-grid">
+  <mat-card>
+    <mat-card-title>Users</mat-card-title>
+    <mat-card-content>View and manage all users.</mat-card-content>
+    <button mat-raised-button color="primary" routerLink="/users">Go to Users</button>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Departments</mat-card-title>
+    <mat-card-content>Organize users by department.</mat-card-content>
+    <button mat-raised-button color="accent" routerLink="/department">Go to Departments</button>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Dashboard</mat-card-title>
+    <mat-card-content>See analytics and stats.</mat-card-content>
+    <button mat-raised-button color="warn" routerLink="/dashboard">Go to Dashboard</button>
+  </mat-card>
+</section>

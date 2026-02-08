@@ -1,0 +1,23 @@
+.dashboard-grid {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+mat-card {
+  width: 250px;
+  text-align: center;
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  flex: 1;
+  text-align: center;
+}

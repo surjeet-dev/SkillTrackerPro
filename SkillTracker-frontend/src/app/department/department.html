@@ -1,0 +1,45 @@
+<h2>Departments</h2>
+
+<div *ngIf="loading">Loading departments...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<!-- Form -->
+<form [formGroup]="form" (ngSubmit)="selectedDepartment ? onUpdate() : onCreate()" *ngIf="!loading && !error">
+  <mat-form-field>
+    <mat-label>Department Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">
+    {{ selectedDepartment ? 'Update Department' : 'Add Department' }}
+  </button>
+  <button mat-button type="button" *ngIf="selectedDepartment" (click)="selectedDepartment=null; form.reset()">
+    Cancel
+  </button>
+</form>
+
+<!-- Table -->
+<table mat-table [dataSource]="departments" class="mat-elevation-z8" *ngIf="!loading && !error">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let dept"> {{dept.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let dept"> {{dept.name}} </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let dept">
+      <button mat-button color="accent" (click)="onEdit(dept)">Edit</button>
+      <button mat-button color="warn" (click)="onDelete(dept.id)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

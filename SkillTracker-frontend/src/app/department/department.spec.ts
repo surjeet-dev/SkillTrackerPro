@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Departments } from './department'; // ✅ Import the component
+
+describe('Departments', () => {
+  let component: Departments;
+  let fixture: ComponentFixture<Departments>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [Departments] // Standalone component
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(Departments);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
